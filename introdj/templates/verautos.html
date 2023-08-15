@@ -1,0 +1,33 @@
+{% block content %}
+    {% block content1 %}
+        <h2>Lista Autos</h2>
+        <p>
+            <a href="{% url 'subirauto' %}" class="btn btn-primary">Subir nuevo auto</a>
+            <a href="{% url 'homepage' %}" class="btn btn-primary">Volver</a>
+        </p>
+    {% endblock %}
+        <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="10" aria-describedby="mydesc">
+            <thead>
+                <tr>
+                    <th id="marca">Marca</th>
+                    <th id="modelo">Modelo</th>
+                    <th id="fecha">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Auto in lista_autos %}
+                    <tr>
+                        <td>
+                            {{Auto.marca}}
+                        </td>
+                        <td>
+                            {{Auto.modelo}}
+                        </td>
+                        <td>
+                            {{Auto.fecha}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
